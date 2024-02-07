@@ -1,4 +1,5 @@
 # To-Do App
+The To-Do App is a simple task management tool designed to help users organize their daily activities efficiently.
 
 ## Features
 
