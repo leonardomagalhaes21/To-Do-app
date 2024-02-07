@@ -10,4 +10,4 @@ The To-Do App is a simple task management tool designed to help users organize t
 
 ## Demo
 
-You can check out a live demo of the app [here](https://leonardomagalhaes21.github.io/To-Do-app/).
+You can check out a live demo of the app <a href="https://leonardomagalhaes21.github.io/To-Do-app/" target="_blank">here</a>.
