@@ -5,9 +5,11 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     margin: 0;
+    padding: 0;
     display: grid;
     place-items: center;
     height: 100vh;
+    font-size: 16px;
 }
 
 .container {
@@ -74,4 +76,14 @@ li {
     justify-content: space-between; 
     max-width: 100%;
     word-wrap: break-word;
+}
+
+@media(max-width: 600px) {
+    body {
+        font-size: 14px;
+    }
+    .container {
+        background-color: rgba(255, 255, 255, 0.9);
+        margin: 5px;
+    }
 }
