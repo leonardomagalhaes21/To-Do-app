@@ -1,27 +1,27 @@
-var removedTasks = [];
-var clearedTasks = [];
-var taskList = document.getElementById("list");
-var lastOperationWasClearAll = false;
+let removedTasks = [];
+let clearedTasks = [];
+let taskList = document.getElementById("list");
+let lastOperationWasClearAll = false;
 
 window.onload = function() {
-    var storedTasks = JSON.parse(localStorage.getItem('tasks'));
+    let storedTasks = JSON.parse(localStorage.getItem('tasks'));
     if (storedTasks) {
-        for (var i = 0; i < storedTasks.length; i++) {
+        for (let i = 0; i < storedTasks.length; i++) {
             addTask(storedTasks[i]);
         }
     }
 }
 
 function addTask(taskText) {
-    var taskInput = document.getElementById("input");
+    let taskInput = document.getElementById("input");
 
-    var text = taskText || taskInput.value;
+    let text = taskText || taskInput.value;
 
     if (text !== "") {
-        var newTask = document.createElement("li");
+        let newTask = document.createElement("li");
         newTask.textContent = text;
 
-        var removeButton = document.createElement("button");
+        let removeButton = document.createElement("button");
         removeButton.textContent = "Remove";
 
         removeButton.onclick = function() {
@@ -43,8 +43,8 @@ function addTask(taskText) {
 }
 
 function saveTasks() {
-    var tasks = [];
-    for (var i = 0; i < taskList.children.length; i++) {
+    let tasks = [];
+    for (let i = 0; i < taskList.children.length; i++) {
         tasks.push(taskList.children[i].textContent.replace('Remove', ''));
     }
     localStorage.setItem('tasks', JSON.stringify(tasks));
@@ -63,23 +63,23 @@ function clearAll() {
 function undo() {
     if (lastOperationWasClearAll) {
         while (clearedTasks.length > 0) {
-            var lastClearedTask = clearedTasks.pop();
+            let lastClearedTask = clearedTasks.pop();
             taskList.insertBefore(lastClearedTask.task, lastClearedTask.nextSibling);
         }
         lastOperationWasClearAll = false;
     } else if (removedTasks.length > 0) {
-        var lastRemovedTask = removedTasks.pop();
+        let lastRemovedTask = removedTasks.pop();
         taskList.insertBefore(lastRemovedTask.task, lastRemovedTask.nextSibling);
     }
 }
 
-var undoButton = document.getElementById("undo");
+let undoButton = document.getElementById("undo");
 undoButton.onclick = undo;
 
-var addButton = document.getElementById("add");
+let addButton = document.getElementById("add");
 addButton.addEventListener('click', function() {
     addTask();
 });
 
-var clearButton = document.getElementById("clear");
+let clearButton = document.getElementById("clear");
 clearButton.onclick = clearAll;
